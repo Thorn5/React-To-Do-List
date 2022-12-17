@@ -1,18 +1,8 @@
 import React from "react";
 
-const DeleteTask = () => {
-  onDelete = (taskId) => {
-    const taskList = this.state.taskList.filter((t) => t.id !== taskId);
-    this.setState({ taskList });
-  };
+const DeleteTask = (prop) => {
   return (
-    <button
-      onClick={() => {
-        this.props.onDelete(this.props.task.id);
-        console.log("clicked");
-      }}
-      className="deleteButton"
-    >
+    <button onClick={prop.onDelete} className="deleteButton">
       Delete
     </button>
   );
