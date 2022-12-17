@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonTask = () => {
+const ButtonTask = (prop) => {
   onDelete = (taskId) => {
     const taskList = this.state.taskList.filter((t) => t.id !== taskId);
     this.setState({ taskList });
