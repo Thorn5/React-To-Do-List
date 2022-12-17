@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import CreateTaskInput from "./CreateTaskInput";
+import tasks from "../tasks";
+
 const Form = () => {
   const [taskValue, getTaskValue] = useState("");
   const handleInputTaskChange = (event) => {
@@ -7,7 +9,9 @@ const Form = () => {
   }
  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log('do validate');
+      console.log("Radi")
+      tasks.push({task: taskValue}); 
+      console.log(tasks);
     }
   };
   return (
