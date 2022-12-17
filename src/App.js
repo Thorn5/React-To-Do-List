@@ -3,9 +3,7 @@ import Container from "./components/Container";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
-
 function App() {
-
   const [taskList, setTaskList] = useState([
     {
       id: 1,
@@ -22,7 +20,7 @@ function App() {
       text: "Task 3",
       checkStatus: false,
     },
-  ])
+  ]);
 
   return (
     <div className="App">
