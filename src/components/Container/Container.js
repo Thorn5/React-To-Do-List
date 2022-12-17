@@ -26,6 +26,7 @@ const Container = () => {
       <div class=""></div>
       <ul class="task-box completed"></ul>
       <button class="clear-btn clear-tasks">Clear all</button>
+      <TaskList />
     </div>
   );
 };

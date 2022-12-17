@@ -1,26 +1,26 @@
 import Task from "./Task/Task";
 
 const TaskList = () => {
-  state = {
-    tasks: [
-      {
-        id: 1,
-        text: "hello there",
-        checked: false,
-      },
-      {
-        id: 2,
-        text: "general kenobi",
-        checked: false,
-      },
-    ],
-  };
+  let tasks = [
+    {
+      id: 1,
+      text: "hello there",
+      checked: false,
+    },
+    {
+      id: 2,
+      text: "general kenobi",
+      checked: false,
+    },
+  ];
   const handleDelete = (taskId) => {
-    const tasks = this.state.tasks.filter((t) => t.id !== taskId);
-    this.setState({ tasks });
+    const tasks = tasks.filter((t) => t.id !== taskId);
+    tasks = { tasks };
     console.log("You Deleted Me.");
   };
-  return <Task onDelete={this.handleDelete} taskList={taskList} />;
+  return tasks.map((task) => (
+    <Task key={task.id} task={task} onDelete={handleDelete} />
+  ));
 };
 
 export default TaskList;
