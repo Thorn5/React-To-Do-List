@@ -11,7 +11,7 @@ const Form = () => {
     }
   };
   return (
-  <CreateTaskInput className="task-input task-input" type="text" placeholder="What do you plan to do?" value={taskValue} onChange={handleInputTaskChange} onKeyDown={handleKeyDown} />
+  <CreateTaskInput className="task-input " type="text" placeholder="What do you plan to do?" value={taskValue} onChange={handleInputTaskChange} onKeyDown={handleKeyDown} />
   );
 }
 
