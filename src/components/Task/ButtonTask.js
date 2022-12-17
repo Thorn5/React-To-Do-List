@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeleteTask = () => {
+const ButtonTask = () => {
   onDelete = (taskId) => {
     const taskList = this.state.taskList.filter((t) => t.id !== taskId);
     this.setState({ taskList });
@@ -18,4 +18,4 @@ const DeleteTask = () => {
   );
 };
 
-export default DeleteTask;
+export default ButtonTask;
