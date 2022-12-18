@@ -10,7 +10,7 @@ const Form = () => {
     getTaskValue(event.target.value, console.log(taskValue))
   }
   const [idCount, updateIdCount] = useState(1);
- const handleKeyDown = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       updateIdCount(idCount + 1);
       console.log("Radi")

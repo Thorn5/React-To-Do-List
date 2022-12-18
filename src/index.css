@@ -188,6 +188,26 @@ li {
   padding: 7px 13px;
   background: #5ab9f0;
 }
+.deleteButton {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: #5ab9f0;
+}
+.editButton {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: #5ab9f0;
+}
 
 .task-box,
 .clear-btn {
