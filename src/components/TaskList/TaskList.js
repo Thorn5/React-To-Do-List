@@ -1,20 +1,21 @@
 import Task from "./Task";
+import tasks from "../tasks";
 
-const TaskList = (prop) => {
-  let tasks = prop.tasks;
-
+const TaskList = () => {
+  
   const handleDelete = (taskId) => {
-    const tasks = tasks.filter((t) => t.id !== taskId);
-    tasks = { tasks };
+    const task = tasks.filter((t) => t.id !== taskId);
+    task = { tasks };
     console.log("You Deleted Me.");
   };
 
   return tasks.map((task) => (
     <Task
       key={task.id}
-      task={task}
-      onDelete={handleDelete}
-      onEdit={handleEdit}
+      task={task.task}
+      value={task.task}
+      onClick={handleDelete}
+      //onEdit={handleEdit}
     />
   ));
 };
