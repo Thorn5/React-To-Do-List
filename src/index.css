@@ -275,3 +275,7 @@ li {
 .task-menu li i {
   padding-right: 8px;
 }
+
+input[type=checkbox]:checked + p.strikethrough{
+  text-decoration: line-through;
+}

@@ -5,7 +5,7 @@ const TaskList = (prop) => {
   //console.log(task.id);
   //});
 
-  return prop.tasks.map((task) => (
+  return (<div className={prop.className}>{prop.tasks.map((task) => (
     <Task
       key={task.id}
       task={task.task}
@@ -14,7 +14,7 @@ const TaskList = (prop) => {
       onDelete={prop.onDelete}
       //onEdit={handleEdit}
     />
-  ));
+  ))}</div>)
 };
 
 export default TaskList;

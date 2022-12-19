@@ -15,6 +15,8 @@ const Form = () => {
     if (e.key === "Enter") {
       updateIdCount(idCount + 1);
       tasks.push({ task: taskValue, id: idCount });
+      getTaskValue("")
+      console.log(tasks)
     }
   };
   const handleDelete = (taskId) => {
@@ -36,7 +38,7 @@ const Form = () => {
         onKeyDown={handleKeyDown}
         id={idCount}
       />
-      <TaskList tasks={tasks} onDelete={handleDelete}></TaskList>
+      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete}></TaskList>
     </div>
   );
 };
