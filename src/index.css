@@ -249,6 +249,10 @@ li {
   transform-origin: top right;
   transition: transform 0.2s ease;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  align-items: center;
+}
+.settings .task-menu li{
+  justify-content: center;
 }
 
 .settings:hover .task-menu {

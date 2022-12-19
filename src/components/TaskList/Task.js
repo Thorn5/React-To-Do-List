@@ -6,14 +6,12 @@ const Task = (prop) => {
     <input onChange={prop.onChange} className="checkbox" type="checkbox"></input>
     <p className="strikethrough">{prop.value}</p>
   </label>
-  <div className="settings task-menu">
-    <div class="settings">
-          <div className="uil uil-ellipsis-h">...</div>
-          <ul class="task-menu">
-              <li><button className="deleteButton" onClick={prop.onDelete} id={prop.id}>Delete</button></li>
-              <li><button className="editButton" onClick={prop.onClick}>Edit</button></li>
-          </ul>
-    </div>
+  <div className="settings">
+        <div className="uil uil-ellipsis-h">...</div>
+        <ul class="task-menu">
+            <li><button className="deleteButton" onClick={prop.onDelete} id={prop.id}>Delete</button></li>
+            <li><button className="editButton" onClick={prop.onClick}>Edit</button></li>
+        </ul>
   </div>
  </li>)
 };
