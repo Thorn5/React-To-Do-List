@@ -8,9 +8,9 @@ const Task = (prop) => {
   </label>
   <div className="settings">
         <div className="uil uil-ellipsis-h">...</div>
-        <ul class="task-menu">
+        <ul className="task-menu">
             <li><button className="deleteButton" onClick={prop.onDelete} id={prop.id}>Delete</button></li>
-            <li><button className="editButton" onClick={prop.onClick}>Edit</button></li>
+            <li><button className="editButton" onClick={prop.onEdit} id={prop.id}>Edit</button></li>
         </ul>
   </div>
  </li>)
