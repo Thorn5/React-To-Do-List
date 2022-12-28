@@ -27,6 +27,15 @@ const Form = () => {
       )
     );
   };
+
+
+  const handleEdit = (taskID) => {
+    newTasks(
+      getTaskValue
+    )
+  }
+  
+  
   return (
     <div>
       <CreateTaskInput
@@ -38,7 +47,7 @@ const Form = () => {
         onKeyDown={handleKeyDown}
         id={idCount}
       />
-      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete}></TaskList>
+      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}></TaskList>
     </div>
   );
 };

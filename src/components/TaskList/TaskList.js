@@ -11,7 +11,8 @@ const TaskList = (prop) => {
       task={task.task}
       id={task.id}
       value={task.task}
-      onDelete={prop.onDelete}s
+      onDelete={prop.onDelete}
+      onEdit={prop.onEdit}
     />
   ))}</div>)
 };
