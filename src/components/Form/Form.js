@@ -27,49 +27,38 @@ const Form = () => {
       // for (let index = 0; index < array.length; index++) {
       //   tasks.map((task) => {tasks.id = index+1})
       // }
-
-      
-
-      
     );
   };
 
-class editTask extends React.Component {
-  constructor(props, taskId) {
-    super(props);
-    this.state = {
-      task:tasks[taskId.target.id-1].task,
-      value:tasks[taskId.target.id-1].value,
-    }
-    this.handleEdit = this.handleEdit.bind(this);
-  }
-}
 
-
+  const [setString] = useState(tasks2);
   const handleEdit = () => {
-    // this.editTask=this.editTask.bind(this);
-    const newValue = prompt("Edit task", this.task);
+    setString(
+      console.log(tasks[taskId.target.id-1].value)
+      // this.editTask=this.editTask.bind(this);
+      const newValue = prompt("Edit task", this.task);
     // const newValue = prompt("Edit task", tasks[taskId.target.id-1].task);
-    this.setState({task: newValue})
-    this.setState({value: newValue});
-    // tasks[taskId.target.id-1].setState({task: newValue})
-    // tasks[taskId.target.id-1].setState({value: newValue})
+    //this.setState({ task: newValue })
+    //this.setState({ value: newValue });
+      // tasks[taskId.target.id-1].setState({task: newValue})
+      // tasks[taskId.target.id-1].setState({value: newValue})
+    );
 };
 
-  return (
-    <div>
-      <CreateTaskInput
-        className="task-input "
-        type="text"
-        placeholder="What do you plan to do?"
-        value={taskValue}
-        onChange={handleInputTaskChange}
-        onKeyDown={handleKeyDown}
-        id={idCount}
-      />
-      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={this.handleEdit}></TaskList>
-    </div>
-  );
+return (
+  <div>
+    <CreateTaskInput
+      className="task-input "
+      type="text"
+      placeholder="What do you plan to do?"
+      value={taskValue}
+      onChange={handleInputTaskChange}
+      onKeyDown={handleKeyDown}
+      id={idCount}
+    />
+    <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}></TaskList>
+  </div>
+);
 };
 
 export default Form;
