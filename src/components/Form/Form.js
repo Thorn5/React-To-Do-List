@@ -29,9 +29,10 @@ const Form = () => {
   };
 
 
-  const handleEdit = (taskID) => {
+  const handleEdit = (taskId) => {
     newTasks(
-      getTaskValue
+      tasks.findIndex((task) => task.id == taskId.target.id)
+      console.log("🚀 ~ file: Form.js:36 ~ handleEdit ~ task", taskId.target.id);
     )
   }
   
