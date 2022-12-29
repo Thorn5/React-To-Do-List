@@ -46,7 +46,7 @@ class editTask extends React.Component {
 }
 
 
-  handleEdit = () => {
+  const handleEdit = () => {
     // this.editTask=this.editTask.bind(this);
     const newValue = prompt("Edit task", this.task);
     // const newValue = prompt("Edit task", tasks[taskId.target.id-1].task);
