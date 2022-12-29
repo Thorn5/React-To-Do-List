@@ -16,7 +16,6 @@ const Form = () => {
       updateIdCount(idCount + 1);
       tasks.push({ task: taskValue, id: idCount });
       getTaskValue("")
-      console.log(tasks)
     }
   };
   const handleDelete = (taskId) => {
@@ -25,18 +24,38 @@ const Form = () => {
         tasks.findIndex((task) => task.id == taskId.target.id),
         1
       )
+      // for (let index = 0; index < array.length; index++) {
+      //   tasks.map((task) => {tasks.id = index+1})
+      // }
+
+      
+
+      
     );
   };
 
-
-  const handleEdit = (taskId) => {
-    newTasks(
-      tasks.findIndex((task) => task.id == taskId.target.id)
-      console.log("🚀 ~ file: Form.js:36 ~ handleEdit ~ task", taskId.target.id);
-    )
+class editTask extends React.Component {
+  constructor(props, taskId) {
+    super(props);
+    this.state = {
+      task:tasks[taskId.target.id-1].task,
+      value:tasks[taskId.target.id-1].value,
+    }
+    this.handleEdit = this.handleEdit.bind(this);
   }
-  
-  
+}
+
+
+  handleEdit = () => {
+    // this.editTask=this.editTask.bind(this);
+    const newValue = prompt("Edit task", this.task);
+    // const newValue = prompt("Edit task", tasks[taskId.target.id-1].task);
+    this.setState({task: newValue})
+    this.setState({value: newValue});
+    // tasks[taskId.target.id-1].setState({task: newValue})
+    // tasks[taskId.target.id-1].setState({value: newValue})
+};
+
   return (
     <div>
       <CreateTaskInput
@@ -48,7 +67,7 @@ const Form = () => {
         onKeyDown={handleKeyDown}
         id={idCount}
       />
-      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}></TaskList>
+      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={this.handleEdit}></TaskList>
     </div>
   );
 };
