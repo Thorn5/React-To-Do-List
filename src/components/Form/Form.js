@@ -39,6 +39,7 @@ console.log("array position: ", stringPosition);
 console.log("task string: ", tasks[stringPosition].task);
 const newValue = prompt("Edit task", tasks[stringPosition].task);
 console.log("new value: ",newValue);
+tasks[stringPosition].setState({task: newValue});
 console.log("+++++++++++++++++++++++++++++++++");
 
       // const newValue = prompt("Edit task", this.task);
