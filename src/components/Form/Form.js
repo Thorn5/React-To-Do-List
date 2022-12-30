@@ -28,28 +28,18 @@ const Form = () => {
   };
 
 
-  // const [setString] = useState(tasks2);
   const handleEdit = (taskId) => {
-    // setString(
-console.log("+++++++++++++++++++++++++++++++++");
-console.log("task list: ", tasks);
-console.log("target ID: ", taskId.target.id)
-const stringPosition = tasks.findIndex((task) => task.id == taskId.target.id)
-console.log("array position: ", stringPosition);
-console.log("task string: ", tasks[stringPosition].task);
-const newValue = prompt("Edit task", tasks[stringPosition].task);
-console.log("new value: ",newValue);
-tasks[stringPosition].setState({task: newValue});
-console.log("+++++++++++++++++++++++++++++++++");
-
-      // const newValue = prompt("Edit task", this.task);
-      // const newValue = prompt("Edit task", tasks[taskId.target.id-1].task);
-      //this.setState({ task: newValue })
-      //this.setState({ value: newValue });
-      // tasks[taskId.target.id-1].setState({task: newValue})
-      // tasks[taskId.target.id-1].setState({value: newValue})
-    // );
+    console.log("+++++++++++++++++++++++++++++++++");
+    console.log("task list: ", tasks);
+    console.log("target ID: ", taskId.target.id)
+    const stringPosition = tasks.findIndex((task) => task.id == taskId.target.id)
+    console.log("array position: ", stringPosition);
+    console.log("task string: ", tasks[stringPosition].task);
+    const newValue = prompt("Edit task", tasks[stringPosition].task);
+    console.log("new value: ", newValue);
+    console.log("+++++++++++++++++++++++++++++++++");
   };
+
 
   return (
     <div>
