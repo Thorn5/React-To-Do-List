@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import CreateTaskInput from "./CreateTaskInput";
-import tasks from "../tasks";
+//import tasks from "../tasks";
 import TaskList from "../TaskList/TaskList";
+import ClearAllButton from "./ClearAllButton";
 
 const Form = () => {
   const [taskValue, getTaskValue] = useState("");
-  let tasks2 = tasks;
-  const [tasksArray, newTasks] = useState(tasks2);
+  const [tasksArray, newTasks] = useState([]);
   const handleInputTaskChange = (event) => {
     getTaskValue(event.target.value);
   };
@@ -17,33 +17,47 @@ const Form = () => {
         alert("Please Enter a Task");
       } else {
         updateIdCount(idCount + 1);
-        tasks.push({ task: taskValue, id: idCount });
+        tasksArray.push({ task: taskValue, id: idCount });
         getTaskValue("");
       }
     }
   };
   const handleDelete = (taskId) => {
-    newTasks(
-      tasks.splice(
-        tasks.findIndex((task) => task.id == taskId.target.id),
-        1
-      )
-    );
+    let deleteIndex = "";
+    tasksArray.forEach((task) => {
+      if (task.id == taskId.target.id) {
+        deleteIndex = tasksArray.indexOf(task);
+      }
+    });
+    newTasks(tasksArray.filter((task) => task !== tasksArray[deleteIndex]));
+  };
+  const handleClearAll = () => {
+    newTasks([]);
   };
 
   const handleEdit = (taskId) => {
     console.log("+++++++++++++++++++++++++++++++++");
-    console.log("task list: ", tasks);
+    console.log("task list: ", tasksArray);
     console.log("target ID: ", taskId.target.id);
-    const stringPosition = tasks.findIndex(
+    const stringPosition = tasksArray.findIndex(
       (task) => task.id == taskId.target.id
     );
     console.log("array position: ", stringPosition);
-    console.log("task string: ", tasks[stringPosition].task);
-    const newValue = prompt("Edit task", tasks[stringPosition].task);
+    console.log("task string: ", tasksArray[stringPosition].task);
+    const newValue = prompt("Edit task", tasksArray[stringPosition].task);
     console.log("new value: ", newValue);
     console.log("+++++++++++++++++++++++++++++++++");
-    newTasks((tasks[stringPosition].task = newValue));
+    newTasks(
+      tasksArray.map((task) => {
+        if (task.id == taskId.target.id) {
+          task.value = newValue;
+          task.task = newValue;
+          return task;
+        } else {
+          return task;
+        }
+      })
+    );
   };
 
   return (
@@ -59,10 +73,11 @@ const Form = () => {
       />
       <TaskList
         className="task-box"
-        tasks={tasks}
+        tasks={tasksArray}
         onDelete={handleDelete}
         onEdit={handleEdit}
       ></TaskList>
+      <ClearAllButton onClearAll={handleClearAll} />
     </div>
   );
 };

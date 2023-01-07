@@ -5,16 +5,20 @@ const TaskList = (prop) => {
   //console.log(task.id);
   //});
 
-  return (<div className={prop.className}>{prop.tasks.map((task) => (
-    <Task
-      key={task.id}
-      task={task.task}
-      id={task.id}
-      value={task.task}
-      onDelete={prop.onDelete}
-      onEdit={prop.onEdit}
-    />
-  ))}</div>)
+  return (
+    <div className={prop.className}>
+      {prop.tasks.map((task) => (
+        <Task
+          key={task.id}
+          task={task.task}
+          id={task.id}
+          value={task.task}
+          onDelete={prop.onDelete}
+          onEdit={prop.onEdit}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default TaskList;

@@ -1,6 +1,5 @@
-const ClearAllButton = (prop) => {
-  
-  return <button onClick = {prop.handleClearAll}>Clear All</button>;
+const ClearAllButton = (props) => {
+  return <button onClick={props.onClearAll}>Clear All</button>;
 };
 
 export default ClearAllButton;
