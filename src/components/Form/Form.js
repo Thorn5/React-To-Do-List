@@ -13,9 +13,13 @@ const Form = () => {
   const [idCount, updateIdCount] = useState(1);
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      updateIdCount(idCount + 1);
-      tasks.push({ task: taskValue, id: idCount });
-      getTaskValue("")
+      if (taskValue == "") {
+        alert("Please Enter a Task");
+      } else {
+        updateIdCount(idCount + 1);
+        tasks.push({ task: taskValue, id: idCount });
+        getTaskValue("");
+      }
     }
   };
   const handleDelete = (taskId) => {
@@ -27,19 +31,20 @@ const Form = () => {
     );
   };
 
-
   const handleEdit = (taskId) => {
     console.log("+++++++++++++++++++++++++++++++++");
     console.log("task list: ", tasks);
-    console.log("target ID: ", taskId.target.id)
-    const stringPosition = tasks.findIndex((task) => task.id == taskId.target.id)
+    console.log("target ID: ", taskId.target.id);
+    const stringPosition = tasks.findIndex(
+      (task) => task.id == taskId.target.id
+    );
     console.log("array position: ", stringPosition);
     console.log("task string: ", tasks[stringPosition].task);
     const newValue = prompt("Edit task", tasks[stringPosition].task);
     console.log("new value: ", newValue);
     console.log("+++++++++++++++++++++++++++++++++");
+    newTasks((tasks[stringPosition].task = newValue));
   };
-
 
   return (
     <div>
@@ -52,7 +57,12 @@ const Form = () => {
         onKeyDown={handleKeyDown}
         id={idCount}
       />
-      <TaskList className="task-box" tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}></TaskList>
+      <TaskList
+        className="task-box"
+        tasks={tasks}
+        onDelete={handleDelete}
+        onEdit={handleEdit}
+      ></TaskList>
     </div>
   );
 };
