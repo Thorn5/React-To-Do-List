@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateTaskInput from "./CreateTaskInput";
 //import tasks from "../tasks";
 import TaskList from "../TaskList/TaskList";
 import ClearAllButton from "./ClearAllButton";
 
 const Form = () => {
+  let tasksArrayJSON;
   const [taskValue, getTaskValue] = useState("");
   const [tasksArray, newTasks] = useState([]);
+  const [idCount, updateIdCount] = useState(1);
+  let oldTasksJSON = localStorage.getItem("Tasks");
+  useEffect(() => {
+    if (oldTasksJSON !== null) {
+      let oldTasks = JSON.parse(oldTasksJSON);
+
+      newTasks(oldTasks);
+    }
+    tasksArrayJSON = JSON.stringify(tasksArray);
+    localStorage.setItem("Tasks", tasksArrayJSON);
+  }, []);
+
   const handleInputTaskChange = (event) => {
     getTaskValue(event.target.value);
   };
-  const [idCount, updateIdCount] = useState(1);
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       if (taskValue == "") {
@@ -18,6 +31,8 @@ const Form = () => {
       } else {
         updateIdCount(idCount + 1);
         tasksArray.push({ task: taskValue, id: idCount });
+        tasksArrayJSON = JSON.stringify(tasksArray);
+        localStorage.setItem("Tasks", tasksArrayJSON);
         getTaskValue("");
       }
     }
@@ -30,23 +45,24 @@ const Form = () => {
       }
     });
     newTasks(tasksArray.filter((task) => task !== tasksArray[deleteIndex]));
+    const newArray = tasksArray.filter(
+      (task) => task !== tasksArray[deleteIndex]
+    );
+    tasksArrayJSON = JSON.stringify(newArray);
+    localStorage.setItem("Tasks", tasksArrayJSON);
   };
   const handleClearAll = () => {
     newTasks([]);
+    const newArray = [];
+    tasksArrayJSON = JSON.stringify(newArray);
+    localStorage.setItem("Tasks", tasksArrayJSON);
   };
 
   const handleEdit = (taskId) => {
-    console.log("+++++++++++++++++++++++++++++++++");
-    console.log("task list: ", tasksArray);
-    console.log("target ID: ", taskId.target.id);
     const stringPosition = tasksArray.findIndex(
       (task) => task.id == taskId.target.id
     );
-    console.log("array position: ", stringPosition);
-    console.log("task string: ", tasksArray[stringPosition].task);
     const newValue = prompt("Edit task", tasksArray[stringPosition].task);
-    console.log("new value: ", newValue);
-    console.log("+++++++++++++++++++++++++++++++++");
     newTasks(
       tasksArray.map((task) => {
         if (task.id == taskId.target.id) {
@@ -58,6 +74,17 @@ const Form = () => {
         }
       })
     );
+    const newArray = tasksArray.map((task) => {
+      if (task.id == taskId.target.id) {
+        task.value = newValue;
+        task.task = newValue;
+        return task;
+      } else {
+        return task;
+      }
+    });
+    tasksArrayJSON = JSON.stringify(newArray);
+    localStorage.setItem("Tasks", tasksArrayJSON);
   };
 
   return (
