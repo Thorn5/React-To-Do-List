@@ -11,12 +11,14 @@ const Form = () => {
   const [idCount, updateIdCount] = useState(1);
   let oldTasksJSON = localStorage.getItem("Tasks");
   useEffect(() => {
+    let newArray = JSON.parse(oldTasksJSON);
     if (oldTasksJSON !== null) {
       let oldTasks = JSON.parse(oldTasksJSON);
 
       newTasks(oldTasks);
     }
-    tasksArrayJSON = JSON.stringify(tasksArray);
+
+    tasksArrayJSON = JSON.stringify(newArray);
     localStorage.setItem("Tasks", tasksArrayJSON);
   }, []);
 
