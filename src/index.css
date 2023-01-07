@@ -188,6 +188,26 @@ li {
   padding: 7px 13px;
   background: #5ab9f0;
 }
+.deleteButton {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: #5ab9f0;
+}
+.editButton {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: #5ab9f0;
+}
 
 .task-box,
 .clear-btn {
@@ -229,6 +249,10 @@ li {
   transform-origin: top right;
   transition: transform 0.2s ease;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  align-items: center;
+}
+.settings .task-menu li{
+  justify-content: center;
 }
 
 .settings:hover .task-menu {
@@ -254,4 +278,8 @@ li {
 
 .task-menu li i {
   padding-right: 8px;
+}
+
+input[type=checkbox]:checked + p.strikethrough{
+  text-decoration: line-through;
 }
