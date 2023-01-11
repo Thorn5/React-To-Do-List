@@ -212,6 +212,8 @@ li {
 } */
 
 button {
+  display: block;
+  margin: auto;
   outline: none;
   border: none;
   color: #fff;

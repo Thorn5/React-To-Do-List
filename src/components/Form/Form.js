@@ -90,7 +90,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="task-area">
       <CreateTaskInput
         className="task-input "
         type="text"
