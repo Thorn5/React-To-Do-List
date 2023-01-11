@@ -188,7 +188,8 @@ li {
   padding: 7px 13px;
   background: #5ab9f0;
 }
-.deleteButton {
+
+/* .deleteButton {
   outline: none;
   border: none;
   color: #fff;
@@ -197,8 +198,22 @@ li {
   border-radius: 4px;
   padding: 7px 13px;
   background: #5ab9f0;
-}
-.editButton {
+} */
+
+/* .editButton {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: #5ab9f0;
+} */
+
+button {
+  display: block;
+  margin: auto;
   outline: none;
   border: none;
   color: #fff;
